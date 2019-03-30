@@ -11,18 +11,23 @@
  */
 
 
- const icons = ["fa fa-diamond", "fa fa-diamond", "fa fa-paper-plane-o", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-anchor", "fa fa-bolt", "fa fa-bolt", "fa fa-cube", "fa fa-cube", "fa fa-leaf", "fa fa-leaf", "fa fa-bicycle", "fa fa-bicycle", "fa fa-bomb", "fa fa-bomb"];
+var cardsArray = ["fa fa-diamond", "fa fa-diamond", "fa fa-paper-plane-o", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-anchor", "fa fa-bolt", "fa fa-bolt", "fa fa-cube", "fa fa-cube", "fa fa-leaf", "fa fa-leaf", "fa fa-bicycle", "fa fa-bicycle", "fa fa-bomb", "fa fa-bomb"];
+//var cardsContainer = document.querySelector(".deck");
 
+let shuffleCards = shuffle(cardsArray);
 
- window.onload = function init() {
-    for(let i = 0; i < icons.length; i++) {
-        const card = document.createElement("li");
-        card.classList.add("card");
-        card.innerHTML = `<i class="${icons[i]}"></i>`;
-        cardsContainer.appendChild(card);
-    
-    }
+loadCards(shuffleCards);
+function loadCards(shuffleCards) {
+
+    let innerhtml = "";
+    for (i = 0; i < shuffleCards.length; i++) {
+        innerhtml = innerhtml + `<li class='card'><i class='${shuffleCards[i]}'></i></li>`
+    }    
+    document.querySelector('.deck').innerHTML += innerhtml;
+
 }
+
+
 
 
 // Shuffle function from http://stackoverflow.com/a/2450976
@@ -40,15 +45,19 @@ function shuffle(array) {
     return array;
 }
 
+
+
 cards = document.querySelectorAll('li.card')
 
 let flippedCards = [];
 
-window.onload = flipCards()
+window.onload = flipCards();
 
 
+//clicking on cards and flipping them
 function flipCards() {
 
+    let cardsShuffled = shuffle(cardsArray);
 
     cards.forEach(function (card) {
 
