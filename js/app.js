@@ -19,11 +19,11 @@ let shuffleCards = shuffle(cardsArray);
 loadCards(shuffleCards);
 function loadCards(shuffleCards) {
 
-    let innerhtml = "";
+    let cardsShuffled = "";
     for (i = 0; i < shuffleCards.length; i++) {
-        innerhtml = innerhtml + `<li class='card'><i class='${shuffleCards[i]}'></i></li>`
+        cardsShuffled = cardsShuffled + `<li class='card'><i class='${shuffleCards[i]}'></i></li>`
     }    
-    document.querySelector('.deck').innerHTML += innerhtml;
+    document.querySelector('.deck').innerHTML = cardsShuffled;
 
 }
 
@@ -121,18 +121,17 @@ function addMove() {
 
 
 
-var starsContainer = document.querySelector('.stars');
+var totalStars = document.querySelector('.stars');
 var star = '<li><i class="fa fa-star"></i></li>';
-starsContainer.innerHTML = star + star + star;
 
 function removeStar(){
 
     if( totalMoves >= 13) {
-        starsContainer.innerHTML = star ;
+        totalStars.innerHTML = star ;
     } else if( totalMoves >= 10 &&  totalMoves <= 12) {
-        starsContainer.innerHTML = star + star;
+        totalStars.innerHTML = star + star;
     } else {
-        starsContainer.innerHTML = star + star + star;
+        totalStars.innerHTML = star + star + star;
     }
 
 }
@@ -160,8 +159,9 @@ function gameTime(){
    
 }
 
-
+//stop time, calculate moves, display victory message
 function victory(){
+    clearInterval(counterInterval)
     totalMoves = totalMoves -1;
     setTimeout(function () {
         alert('Congratulations you beat the game! You did it in ' + totalMoves+' moves')
@@ -169,7 +169,7 @@ function victory(){
 }
 
 
-
+// display game over message
 function gameOver(){
     
     var endGame = confirm('Game Over! Time is up. Your score was: ' + score)
