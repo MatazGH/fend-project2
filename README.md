@@ -11,7 +11,7 @@ This is a project submission for Udacity front-end developer nano degree. The me
 
 
 
-#Developers
+## Developers
 
 To get started, open `js/app.js` .
 
