@@ -83,7 +83,7 @@ function addMove() {
 }
 var totalStars = document.querySelector('.stars');
 var star = '<li><i class="fa fa-star"></i></li>';
-var starScore ='';
+var starScore = '';
 function removeStar() {
     if (totalMoves >= 13) {
         totalStars.innerHTML = star;
@@ -117,15 +117,30 @@ function victory() {
     clearInterval(counterInterval)
     totalMoves = totalMoves - 1;
     setTimeout(function () {
-        alert('Congratulations you beat the game! You did it in ' + totalMoves + ' moves \n Your time was:' + countDown + '\n Number of stars: ' + starScore)
+
+        Swal.fire({
+            title: 'VICTORY!!',
+            text: 'You did it in ' + totalMoves + ' moves. Your time was: ' + countDown
+                + '. Number of stars: ' + starScore,
+            confirmButtonText: 'Cool!'
+        })
+
     }, 100);
 }
 // display game over message
 function gameOver() {
-    var endGame = confirm('Game Over! Time is up. Your score was: ' + score)
-    if (endGame) {
-        restartGame();
-    }
+
+    Swal.fire({
+        title: 'Game Over!',
+        text: 'Time is up. Your score was: ' + score,
+        type: 'warning',
+        confirmButtonColor: '#3085d6',
+        confirmButtonText: 'Cool...'
+    }).then((result) => {
+        if (result.value) {
+            restartGame();
+        }
+    })
 }
 
 function restartGame() {
