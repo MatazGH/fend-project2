@@ -3,18 +3,24 @@
 ## Table of Contents
 
 * [Instructions](#instructions)
-* [Contributing](#contributing)
+* [Developers](#developers)
 
 ## Instructions
 
-The starter project has some HTML and CSS styling to display a static version of the Memory Game project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+This is a project submission for Udacity front-end developer nano degree. The memory game is a game where a palyer tries to match all the tiles together before the time ends.
 
-To get started, open `js/app.js` and start building out the app's functionality
 
-For specific, detailed instructions, look at the project instructions in the [Udacity Classroom](https://classroom.udacity.com/me).
 
-## Contributing
+#Developers
 
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
+To get started, open `js/app.js` .
 
-For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
+* flipCards() - this function flips two cards on click and points to the compareCards function.
+* compareCards() - this function compares cards and updates the score.
+* victory() - if the players wins the game this method will display a message for the user informing him of winning.
+* gameOver() - this method tells the user that they have lost the game if they ran out of time.
+* restartGame() - restarts the game.
+* gameTime() - game time countdown.
+* removeStar() - removes a star based on the player's moves. 
+
+
