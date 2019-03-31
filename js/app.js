@@ -83,14 +83,17 @@ function addMove() {
 }
 var totalStars = document.querySelector('.stars');
 var star = '<li><i class="fa fa-star"></i></li>';
-
+var starScore ='';
 function removeStar() {
     if (totalMoves >= 13) {
         totalStars.innerHTML = star;
+        starScore = 1;
     } else if (totalMoves >= 10 && totalMoves <= 12) {
         totalStars.innerHTML = star + star;
+        starScore = 2
     } else {
         totalStars.innerHTML = star + star + star;
+        starScore = 3
     }
 }
 //call countdown function
@@ -114,7 +117,7 @@ function victory() {
     clearInterval(counterInterval)
     totalMoves = totalMoves - 1;
     setTimeout(function () {
-        alert('Congratulations you beat the game! You did it in ' + totalMoves + ' moves')
+        alert('Congratulations you beat the game! You did it in ' + totalMoves + ' moves \n Your time was:' + countDown + '\n Number of stars: ' + starScore)
     }, 100);
 }
 // display game over message
